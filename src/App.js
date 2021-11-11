@@ -6,7 +6,7 @@ import Header from "./pages/SharedComponents/Header/Header";
 
 function App() {
   return (
-    <div>
+    <div className="">
       <BrowserRouter>
         <Header></Header>
         <Switch>
