@@ -3,6 +3,8 @@ import {
   getAuth,
   createUserWithEmailAndPassword,
   onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signOut,
 } from "firebase/auth";
 import firebaseInitialization from "../firebase/firebase.init";
 // firebase initialization
@@ -28,15 +30,30 @@ const useFirebase = () => {
   }, [auth]);
 
   // register user
-  const registerUser = (email, password) => {
+  const registerUser = (email, password, location, history) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log(userCredential);
+        history.push("/home");
       })
       .catch((error) => {});
   };
+  // login user
+  const loginUser = (email, password, location, history) => {
+    signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        const redirectedUrl = location?.state?.from || "/home";
+        history.push(redirectedUrl);
+      })
+      .catch((error) => console.log(error.message));
+  };
 
-  return { user, registerUser, loading };
+  // log our user
+
+  const logOut = () => {
+    signOut(auth).then();
+  };
+
+  return { user, registerUser, loading, loginUser, logOut };
 };
 
 export default useFirebase;

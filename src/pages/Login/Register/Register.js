@@ -1,10 +1,12 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation, useHistory } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
 const Register = () => {
   const { registerUser } = useAuth();
   const [registerInfo, setRegisterInfo] = useState({});
+  const location = useLocation();
+  const history = useHistory();
   // handle input data
   const handleInput = (e) => {
     const field = e.target.name;
@@ -17,7 +19,7 @@ const Register = () => {
   //   handle form submit
   const handleRegister = (e) => {
     e.preventDefault();
-    registerUser(registerInfo.email, registerInfo.password);
+    registerUser(registerInfo.email, registerInfo.password, location, history);
     console.log(registerInfo);
   };
   return (

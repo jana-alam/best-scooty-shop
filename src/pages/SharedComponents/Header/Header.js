@@ -3,8 +3,13 @@ import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import whiteLogo from "../../../images/logo-white.png";
 import { NavLink } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 
 const Header = () => {
+  const { user, logOut } = useAuth();
+  const handleLogOut = () => {
+    logOut();
+  };
   return (
     <Disclosure as="nav" className="bg-red-600 shadow-lg">
       {({ open }) => (
@@ -57,16 +62,22 @@ const Header = () => {
               </div>
               {/* Header right side user,login, logout */}
               <div className="flex items-center pr-2 sm:ml-6 sm:pr-0 space-x-4">
-                <NavLink
-                  className="text-white text-xl  border-b-2 border-transparent hover:text-gray-200"
-                  activeClassName=" border-white"
-                  to="/login"
-                >
-                  Login
-                </NavLink>
-                <button className="px-4 py-2 bg-white text-red-600 font-medium rounded">
-                  Logout
-                </button>
+                {user?.email ? (
+                  <button
+                    onClick={handleLogOut}
+                    className="px-4 py-2 bg-white text-red-600 font-medium rounded"
+                  >
+                    Logout
+                  </button>
+                ) : (
+                  <NavLink
+                    className="text-white text-xl  border-b-2 border-transparent hover:text-gray-200"
+                    activeClassName=" border-white"
+                    to="/login"
+                  >
+                    Login
+                  </NavLink>
+                )}
               </div>
             </div>
           </div>

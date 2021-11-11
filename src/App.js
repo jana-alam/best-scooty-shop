@@ -2,7 +2,9 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import AuthProvider from "./components/AuthProvider/AuthProvider";
 import Home from "./pages/Home/Home/Home";
 import Login from "./pages/Login/Login/Login";
+import PrivateRoute from "./pages/Login/PrivateRoute/PrivateRoute";
 import Register from "./pages/Login/Register/Register";
+import Scooters from "./pages/Scooters/Scooters/Scooters";
 import Header from "./pages/SharedComponents/Header/Header";
 
 function App() {
@@ -15,6 +17,9 @@ function App() {
             <Route exact path="/">
               <Home></Home>
             </Route>
+            <PrivateRoute path="/scooters">
+              <Scooters></Scooters>
+            </PrivateRoute>
             <Route path="/login">
               <Login></Login>
             </Route>
