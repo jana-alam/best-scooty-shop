@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import useFirebase from "../../../hooks/useFirebase";
+import useAuth from "../../../hooks/useAuth";
 
 const Register = () => {
-  const { user, registerUser } = useFirebase();
+  const { registerUser } = useAuth();
   const [registerInfo, setRegisterInfo] = useState({});
   // handle input data
   const handleInput = (e) => {
@@ -13,6 +13,7 @@ const Register = () => {
     newInfo[field] = value;
     setRegisterInfo(newInfo);
   };
+
   //   handle form submit
   const handleRegister = (e) => {
     e.preventDefault();
@@ -30,18 +31,21 @@ const Register = () => {
           <form onSubmit={handleRegister} className="w-8/12 mx-auto space-y-6">
             <input
               onBlur={handleInput}
+              name="name"
               type="name"
               placeholder="Your Name"
               className="p-2 w-full outline-none bg-gray-50 text-gray-800 border-b-2 border-red-600 focus:ring-0 "
             />
             <input
               onBlur={handleInput}
+              name="email"
               type="email"
               placeholder="Your Email"
               className="p-2 w-full outline-none bg-gray-50 text-gray-800 border-b-2 border-red-600 focus:ring-0 "
             />
             <input
               onBlur={handleInput}
+              name="password"
               type="password"
               placeholder="Password"
               className="p-2 w-full outline-none bg-gray-50 text-gray-800 border-b-2 border-red-600 focus:ring-0 "
