@@ -1,12 +1,7 @@
 import React from "react";
-import Navigation from "../../SharedComponents/Navigation/Navigation";
 
 const Home = () => {
-  return (
-    <>
-      <Navigation></Navigation>
-    </>
-  );
+  return <></>;
 };
 
 export default Home;

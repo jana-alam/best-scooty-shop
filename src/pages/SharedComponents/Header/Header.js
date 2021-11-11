@@ -4,7 +4,7 @@ import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import whiteLogo from "../../../images/logo-white.png";
 import { NavLink } from "react-router-dom";
 
-const Navigation = () => {
+const Header = () => {
   return (
     <Disclosure as="nav" className="bg-red-600 shadow-lg">
       {({ open }) => (
@@ -39,15 +39,15 @@ const Navigation = () => {
                 <div className="hidden sm:flex sm:items-center sm:ml-6">
                   <div className="flex space-x-8">
                     <NavLink
-                      className="text-white text-xl hover:text-gray-200"
-                      activeClassName=" border-b-2 border-white"
+                      className="text-white text-xl  border-b-2 border-transparent hover:text-gray-200"
+                      activeClassName="border-white"
                       to="/home"
                     >
                       Home
                     </NavLink>
                     <NavLink
-                      className="text-white text-xl hover:text-gray-200"
-                      activeClassName=" border-b-2 border-white"
+                      className="text-white text-xl  border-b-2 border-transparent hover:text-gray-200"
+                      activeClassName="border-white"
                       to="/scooters"
                     >
                       Scooters
@@ -58,8 +58,8 @@ const Navigation = () => {
               {/* Header right side user,login, logout */}
               <div className="flex items-center pr-2 sm:ml-6 sm:pr-0 space-x-4">
                 <NavLink
-                  className="text-white text-xl hover:text-gray-200"
-                  activeClassName="border-b-2 border-white"
+                  className="text-white text-xl  border-b-2 border-transparent hover:text-gray-200"
+                  activeClassName=" border-white"
                   to="/login"
                 >
                   Login
@@ -87,4 +87,4 @@ const Navigation = () => {
   );
 };
 
-export default Navigation;
+export default Header;
