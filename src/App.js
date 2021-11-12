@@ -5,6 +5,7 @@ import Login from "./pages/Login/Login/Login";
 import PrivateRoute from "./pages/Login/PrivateRoute/PrivateRoute";
 import Register from "./pages/Login/Register/Register";
 import Scooters from "./pages/Scooters/Scooters/Scooters";
+import Footer from "./pages/SharedComponents/Footer/Footer";
 import Header from "./pages/SharedComponents/Header/Header";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
               <Register></Register>
             </Route>
           </Switch>
+          <Footer></Footer>
         </BrowserRouter>
       </AuthProvider>
     </div>
