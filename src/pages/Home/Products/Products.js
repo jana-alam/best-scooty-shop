@@ -15,7 +15,7 @@ const Products = () => {
         </p>
       </div>
       {/* Products container */}
-      <div className="w-10/12 mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 shadow-2xl mt-8 bg-gray-100">
+      <div className="w-10/12 mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 shadow-xl mt-8 bg-gray-100 py-8">
         <SingleProduct />
         <SingleProduct />
         <SingleProduct />

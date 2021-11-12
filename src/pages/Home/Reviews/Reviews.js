@@ -12,7 +12,7 @@ const Reviews = () => {
       <h1 className="text-center text-6xl text-red-600 font-semibold mb-6 sm:mb-12">
         Happy Customers!
       </h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 items-center bg-red-200">
+      <div className="grid grid-cols-1 sm:grid-cols-2 items-center bg-red-50">
         <div className="w-10/12 mx-auto">
           <Swiper
             speed={1000}
