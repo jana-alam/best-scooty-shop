@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import logo from "../../../images/logo-white.png";
 
-const DashBoardSideBar = ({ sidebarOpen, setSidebarOpen }) => {
+const DashBoardSideBar = ({ sidebarOpen, setSidebarOpen, url }) => {
   const { user } = useAuth();
   const trigger = useRef(null);
   const sidebar = useRef(null);
@@ -76,7 +76,7 @@ const DashBoardSideBar = ({ sidebarOpen, setSidebarOpen }) => {
         {/* Links */}
         <div>
           <ul className="mt-2">
-            {/* Dashboard */}
+            {/* Home */}
             <li className="px-3 py-2 rounded-sm mb-0.5 last:mb-0">
               <NavLink
                 to="/"
@@ -110,7 +110,7 @@ const DashBoardSideBar = ({ sidebarOpen, setSidebarOpen }) => {
                 {/* Make Admin */}
                 <li className="px-3 py-2 rounded-sm mb-0.5 last:mb-0">
                   <NavLink
-                    to="/make-admin"
+                    to={`${url}/make-admin`}
                     className="block text-gray-200 hover:text-white transition duration-150"
                   >
                     <div className="flex items-center justify-between">
@@ -137,7 +137,7 @@ const DashBoardSideBar = ({ sidebarOpen, setSidebarOpen }) => {
                 {/* Manage  Orders */}
                 <li className="px-3 py-2 rounded-sm mb-0.5 last:mb-0">
                   <NavLink
-                    to="/manage-orders"
+                    to={`${url}/manage-orders`}
                     className="block text-gray-200 hover:text-white transition duration-150"
                   >
                     <div className="flex items-center justify-between">
@@ -176,7 +176,7 @@ const DashBoardSideBar = ({ sidebarOpen, setSidebarOpen }) => {
                 {/* Add Product */}
                 <li className="px-3 py-2 rounded-sm mb-0.5 last:mb-0">
                   <NavLink
-                    to="/add-product"
+                    to={`${url}/add-product`}
                     className="block text-gray-200 hover:text-white transition duration-150"
                   >
                     <div className="flex flex-grow">
@@ -216,7 +216,7 @@ const DashBoardSideBar = ({ sidebarOpen, setSidebarOpen }) => {
                 {/* Manage Product */}
                 <li className="px-3 py-2 rounded-sm mb-0.5 last:mb-0">
                   <NavLink
-                    to="/manage-product"
+                    to={`${url}/manage-products`}
                     className="block text-gray-200 hover:text-white transition duration-150"
                   >
                     <div className="flex flex-grow">
@@ -249,7 +249,7 @@ const DashBoardSideBar = ({ sidebarOpen, setSidebarOpen }) => {
                 {/* Payment */}
                 <li className="px-3 py-2 rounded-sm mb-0.5 last:mb-0">
                   <NavLink
-                    to="/pay"
+                    to={`${url}/payment`}
                     className="block text-gray-200 hover:text-white transition duration-150"
                   >
                     <div className="flex flex-grow">
@@ -274,7 +274,7 @@ const DashBoardSideBar = ({ sidebarOpen, setSidebarOpen }) => {
                 {/* My Orders */}
                 <li className="px-3 py-2 rounded-sm mb-0.5 last:mb-0">
                   <NavLink
-                    to="/my-orders"
+                    to={`${url}/my-orders`}
                     className="block text-gray-200 hover:text-white transition duration-150"
                   >
                     <div className="flex items-center justify-between">
@@ -310,7 +310,7 @@ const DashBoardSideBar = ({ sidebarOpen, setSidebarOpen }) => {
                 {/* Reviews */}
                 <li className="px-3 py-2 rounded-sm mb-0.5 last:mb-0">
                   <NavLink
-                    to="/review"
+                    to={`${url}/review`}
                     className="block text-gray-200 hover:text-white transition duration-150"
                   >
                     <div className="flex flex-grow">
