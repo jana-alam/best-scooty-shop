@@ -2,7 +2,7 @@ import React from "react";
 
 const ShippingDetails = () => {
   return (
-    <div className="mt-10 sm:mt-0">
+    <div className="mt-10 sm:mt-0 ">
       {/* form */}
       <form className="px-6">
         <div className="shadow">

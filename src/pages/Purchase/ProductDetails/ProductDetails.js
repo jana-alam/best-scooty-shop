@@ -3,7 +3,7 @@ import scooty1 from "../../../images/scooty-2.png";
 
 const ProductDetails = () => {
   return (
-    <div className="relative flex flex-col space-x-6 items-center p-4 bg-white">
+    <div className="relative flex flex-col space-x-6 items-center m-4">
       <img src={scooty1} className="w-4/12 relative" alt="product" />
       <div className="text-gray-900 mt-4">
         <h2 className="text-2xl font-semibold text-gray-800">
