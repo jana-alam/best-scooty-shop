@@ -1,5 +1,4 @@
 import React from "react";
-import SectionDivider from "../../SharedComponents/SectionDivider/SectionDivider";
 import SingleProduct from "../SingleProduct/SingleProduct";
 
 const Products = () => {
@@ -24,7 +23,6 @@ const Products = () => {
         <SingleProduct />
         <SingleProduct />
       </div>
-      <SectionDivider transform={180} />
     </section>
   );
 };
