@@ -1,7 +1,7 @@
 import React from "react";
 import scooty1 from "../../../images/scooty-2.png";
 
-const SingleProduct = () => {
+const HomeScooter = () => {
   return (
     <div className="flex space-x-6 items-center p-6">
       <img src={scooty1} className="w-4/12" alt="product" />
@@ -31,4 +31,4 @@ const SingleProduct = () => {
   );
 };
 
-export default SingleProduct;
+export default HomeScooter;

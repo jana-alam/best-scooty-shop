@@ -1,7 +1,14 @@
 import React from "react";
+import AllScooter from "../AllScooter/AllScooter";
+import ScootersBanner from "../ScootersBanner/ScootersBanner";
 
 const Scooters = () => {
-  return <div>This is scooter</div>;
+  return (
+    <>
+      <ScootersBanner></ScootersBanner>
+      <AllScooter></AllScooter>
+    </>
+  );
 };
 
 export default Scooters;

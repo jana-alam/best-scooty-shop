@@ -1,7 +1,7 @@
 import React from "react";
-import SingleProduct from "../SingleProduct/SingleProduct";
+import HomeScooter from "../HomeScooter/HomeScooter";
 
-const Products = () => {
+const HomeScooters = () => {
   return (
     // Products section homepage
     <section className="py-8 pb-24 relative">
@@ -16,15 +16,15 @@ const Products = () => {
       </div>
       {/* Products container */}
       <div className="w-10/12 mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 shadow-xl mt-8 bg-gray-100 py-8">
-        <SingleProduct />
-        <SingleProduct />
-        <SingleProduct />
-        <SingleProduct />
-        <SingleProduct />
-        <SingleProduct />
+        <HomeScooter />
+        <HomeScooter />
+        <HomeScooter />
+        <HomeScooter />
+        <HomeScooter />
+        <HomeScooter />
       </div>
     </section>
   );
 };
 
-export default Products;
+export default HomeScooters;
