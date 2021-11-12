@@ -63,12 +63,21 @@ const Header = () => {
               {/* Header right side user,login, logout */}
               <div className="flex items-center pr-2 sm:ml-6 sm:pr-0 space-x-4">
                 {user?.email ? (
-                  <button
-                    onClick={handleLogOut}
-                    className="px-4 py-2 bg-white text-red-600 font-medium rounded-full"
-                  >
-                    Logout
-                  </button>
+                  <div className="space-x-4 flex items-center">
+                    <NavLink
+                      className="text-white text-xl  border-b-2 border-transparent hover:text-gray-200"
+                      activeClassName=" border-white"
+                      to="/dashboard"
+                    >
+                      DashBoard
+                    </NavLink>
+                    <button
+                      onClick={handleLogOut}
+                      className="px-4 py-2 bg-white text-red-600 font-medium rounded-full"
+                    >
+                      Logout
+                    </button>
+                  </div>
                 ) : (
                   <NavLink
                     className="text-white text-xl  border-b-2 border-transparent hover:text-gray-200"
