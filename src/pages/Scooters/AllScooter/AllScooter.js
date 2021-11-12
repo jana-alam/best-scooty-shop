@@ -4,7 +4,7 @@ import SingleScooter from "../SingleScooter/SingleScooter";
 const AllScooter = () => {
   return (
     <section className="py-12 bg-gray-50">
-      <div className="grid grid-cols-3 gap-8 w-10/12 mx-auto ">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 w-10/12 mx-auto ">
         <SingleScooter></SingleScooter>
         <SingleScooter></SingleScooter>
         <SingleScooter></SingleScooter>

@@ -4,6 +4,7 @@ import Home from "./pages/Home/Home/Home";
 import Login from "./pages/Login/Login/Login";
 import PrivateRoute from "./pages/Login/PrivateRoute/PrivateRoute";
 import Register from "./pages/Login/Register/Register";
+import Purchase from "./pages/Purchase/Purchase/Purchase";
 import Scooters from "./pages/Scooters/Scooters/Scooters";
 import Footer from "./pages/SharedComponents/Footer/Footer";
 import Header from "./pages/SharedComponents/Header/Header";
@@ -23,6 +24,9 @@ function App() {
             </Route>
             <PrivateRoute path="/scooters">
               <Scooters></Scooters>
+            </PrivateRoute>
+            <PrivateRoute path="/purchase">
+              <Purchase></Purchase>
             </PrivateRoute>
             <Route path="/login">
               <Login></Login>
