@@ -1,7 +1,12 @@
 import React from "react";
+import { useHistory } from "react-router";
 import scooty1 from "../../../images/scooty-2.png";
 
 const HomeScooter = () => {
+  const history = useHistory();
+  const handleBuyNow = () => {
+    history.push("/purchase");
+  };
   return (
     <div className="flex space-x-6 items-center p-6">
       <img src={scooty1} className="w-4/12" alt="product" />
@@ -23,7 +28,10 @@ const HomeScooter = () => {
           <span>Availibility</span>{" "}
           <span className="text-green-600 ">In Stock!</span>
         </p>
-        <button className="px-6 py-2 mt-4 bg-red-600 text-white rounded-full">
+        <button
+          onClick={handleBuyNow}
+          className="px-6 py-2 mt-4 bg-red-600 text-white rounded-full"
+        >
           Buy It Now
         </button>
       </div>
