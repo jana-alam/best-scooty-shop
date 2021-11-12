@@ -4,7 +4,7 @@ import SingleProduct from "../SingleProduct/SingleProduct";
 const Products = () => {
   return (
     // Products section homepage
-    <section className="py-8">
+    <section className="py-8 pb-20">
       <div className="space-y-4">
         <h1 className="text-center text-6xl text-red-600 font-semibold">
           Our Scooty
