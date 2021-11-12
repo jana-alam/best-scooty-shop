@@ -11,7 +11,7 @@ const Header = () => {
     logOut();
   };
   return (
-    <Disclosure as="nav" className="bg-red-600 shadow-lg">
+    <Disclosure as="nav" className="bg-red-600 shadow-lg sm:py-2">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -65,7 +65,7 @@ const Header = () => {
                 {user?.email ? (
                   <button
                     onClick={handleLogOut}
-                    className="px-4 py-2 bg-white text-red-600 font-medium rounded"
+                    className="px-4 py-2 bg-white text-red-600 font-medium rounded-full"
                   >
                     Logout
                   </button>
