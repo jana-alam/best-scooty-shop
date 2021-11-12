@@ -3,10 +3,10 @@ import Review from "../Review/Review";
 
 const Reviews = () => {
   return (
-    <section className="py-8 pb-20 bg-gradient-to-t from-gray-300">
+    <section className="pt-12 pb-20 bg-gradient-to-t from-gray-300">
       <div>
         <h1 className="text-center text-6xl text-gray-900 font-semibold">
-          Reviews!
+          Happy Customers!
         </h1>
       </div>
       {/* Products container */}
