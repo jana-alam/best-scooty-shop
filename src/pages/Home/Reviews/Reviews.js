@@ -9,8 +9,8 @@ import "swiper/swiper-bundle.min.css";
 const Reviews = () => {
   return (
     <section className="">
-      <h1 className="text-center text-6xl text-red-600 font-semibold mb-6 sm:mb-12">
-        Happy Customers!
+      <h1 className="text-center text-6xl text-gray-600 font-semibold mb-6 sm:mb-12">
+        Happy <span className="text-red-600">Customers!</span>
       </h1>
       <div className="grid grid-cols-1 sm:grid-cols-2 items-center bg-red-50">
         <div className="w-10/12 mx-auto">
