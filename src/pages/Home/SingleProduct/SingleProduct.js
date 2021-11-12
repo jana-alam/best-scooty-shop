@@ -14,7 +14,7 @@ const SingleProduct = () => {
           iusto.
         </p>
         <p className="grid grid-cols-2 font-semibold">
-          <span>Price</span> <span className="text-red-600 ">$600</span>
+          <span>Price</span> <span className="text-red-600">$600</span>
         </p>
         <p className="grid grid-cols-2 font-semibold">
           <span>Power</span> <span className=" ">250 W</span>
