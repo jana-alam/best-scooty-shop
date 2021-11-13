@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { NavLink, useLocation, useHistory } from "react-router-dom";
+import Spinner from "../../SharedComponents/Spinner/Spinner";
 import useAuth from "../../../hooks/useAuth";
 
 const LoginMain = () => {
-  const { loginUser } = useAuth();
+  const { loading, loginUser } = useAuth();
   const [loginInfo, setLoginInfo] = useState({});
 
   const location = useLocation();
@@ -21,7 +22,6 @@ const LoginMain = () => {
 
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(loginInfo);
     loginUser(loginInfo.email, loginInfo.password, location, history);
   };
   return (
@@ -47,11 +47,15 @@ const LoginMain = () => {
               placeholder="Password"
               className="p-2 w-full outline-none bg-gray-50 text-gray-800 border-b-2 border-red-600 focus:ring-0 "
             />
-            <input
-              type="submit"
-              value="Login"
-              className="p-2 w-full bg-red-600 text-white cursor-pointer text-lg"
-            />
+            {loading ? (
+              <Spinner />
+            ) : (
+              <input
+                type="submit"
+                value="Login"
+                className="p-2 w-full bg-red-600 text-white cursor-pointer text-lg"
+              />
+            )}
           </form>
           <p className="text-center text-gray-700 mt-6 text-lg">
             New Customer? Then{" "}
