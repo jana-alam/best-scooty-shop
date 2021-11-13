@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Route, Switch, useRouteMatch } from "react-router";
 import useAuth from "../../../hooks/useAuth";
 import AdminRoute from "../../Login/AdminRoute/AdminRoute";
-import Spinner from "../../SharedComponents/Spinner/Spinner";
 import AddProduct from "../AddProduct/AddProduct";
 import DashBoardHeader from "../DashBoardHeader/DashBoardHeader";
 import DashBoardSideBar from "../DashBoardSideBar/DashBoardSideBar";
