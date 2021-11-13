@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Review from "../Review/Review";
 import { Swiper, SwiperSlide } from "swiper/react/swiper-react";
 import { Pagination, Autoplay } from "swiper";
@@ -7,6 +7,14 @@ import review from "../../../images/review-img.jpg";
 import "swiper/swiper-bundle.min.css";
 
 const Reviews = () => {
+  const [customerFeedback, setCustomerFeedBack] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/reviews")
+      .then((res) => res.json())
+      .then((result) => {
+        setCustomerFeedBack(result);
+      });
+  }, []);
   return (
     <section className="">
       <h1 className="text-center text-6xl text-gray-600 font-semibold mb-6 sm:mb-12">
@@ -24,18 +32,11 @@ const Reviews = () => {
               clickable: true,
             }}
           >
-            <SwiperSlide>
-              <Review></Review>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Review></Review>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Review></Review>
-            </SwiperSlide>
-            <SwiperSlide>
-              <Review></Review>
-            </SwiperSlide>
+            {customerFeedback.map((rev) => (
+              <SwiperSlide key={rev._id}>
+                <Review rev={rev}></Review>
+              </SwiperSlide>
+            ))}
           </Swiper>
         </div>
         {/* image section */}
