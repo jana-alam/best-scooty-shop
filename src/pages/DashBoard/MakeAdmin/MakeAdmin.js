@@ -10,7 +10,7 @@ const MakeAdmin = () => {
   const hanldleAdmin = (e) => {
     e.preventDefault();
     const adminUser = { email };
-    const url = `http://localhost:5000/user/admin`;
+    const url = ` https://mysterious-falls-26048.herokuapp.com/user/admin`;
     fetch(url, {
       method: "PUT",
       headers: {

@@ -10,7 +10,7 @@ const Purchase = () => {
   const { id } = useParams();
   const [productDetail, setProductDetail] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:5000/product/${id}`)
+    fetch(` https://mysterious-falls-26048.herokuapp.com/product/${id}`)
       .then((res) => res.json())
       .then((data) => {
         setProductDetail(data);

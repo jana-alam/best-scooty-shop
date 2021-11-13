@@ -4,7 +4,7 @@ import SingleOrder from "./SingleOrder";
 const ManageOrders = () => {
   const [allOrders, setAllOrders] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/orders", {
+    fetch(" https://mysterious-falls-26048.herokuapp.com/orders", {
       method: "POST",
     })
       .then((res) => res.json())
@@ -15,7 +15,7 @@ const ManageOrders = () => {
   }, []);
 
   const handleDeleteOrder = (id) => {
-    fetch(`http://localhost:5000/orders/${id}`, {
+    fetch(` https://mysterious-falls-26048.herokuapp.com/orders/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

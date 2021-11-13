@@ -6,7 +6,7 @@ const MyOrders = () => {
   const { user } = useAuth();
   const [myOrders, setMyOrders] = useState([]);
   useEffect(() => {
-    const url = `http://localhost:5000/my-orders/${user?.email}`;
+    const url = ` https://mysterious-falls-26048.herokuapp.com/my-orders/${user?.email}`;
     fetch(url)
       .then((res) => res.json())
       .then((result) => {
@@ -15,7 +15,7 @@ const MyOrders = () => {
   }, [user?.email]);
 
   const handleDeleteOrder = (id) => {
-    fetch(`http://localhost:5000/my-order/${id}`, {
+    fetch(` https://mysterious-falls-26048.herokuapp.com/my-order/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())

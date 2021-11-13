@@ -9,7 +9,7 @@ import "swiper/swiper-bundle.min.css";
 const Reviews = () => {
   const [customerFeedback, setCustomerFeedBack] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/reviews")
+    fetch(" https://mysterious-falls-26048.herokuapp.com/reviews")
       .then((res) => res.json())
       .then((result) => {
         setCustomerFeedBack(result);

@@ -5,7 +5,7 @@ import SingleScooter from "../SingleScooter/SingleScooter";
 const AllScooter = () => {
   const [allProducts, setAllProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/products")
+    fetch(" https://mysterious-falls-26048.herokuapp.com/products")
       .then((res) => res.json())
       .then((data) => {
         setAllProducts(data);

@@ -8,7 +8,7 @@ const SingleOrder = ({ order, handleDeleteOrder }) => {
 
   const handleOrderStatus = (id) => {
     setStatusLoading(true);
-    fetch(`http://localhost:5000/order/status/${id}`, {
+    fetch(` https://mysterious-falls-26048.herokuapp.com/order/status/${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())

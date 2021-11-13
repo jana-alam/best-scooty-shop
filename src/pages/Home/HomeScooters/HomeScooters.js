@@ -4,7 +4,7 @@ import HomeScooter from "../HomeScooter/HomeScooter";
 const HomeScooters = () => {
   const [homeProducts, setHomeProducts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/home/products")
+    fetch(" https://mysterious-falls-26048.herokuapp.com/home/products")
       .then((res) => res.json())
       .then((data) => {
         setHomeProducts(data);

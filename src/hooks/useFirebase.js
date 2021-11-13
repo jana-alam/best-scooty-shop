@@ -39,7 +39,7 @@ const useFirebase = () => {
 
   useEffect(() => {
     setAdminLoading(true);
-    const url = `http://localhost:5000/users/${user.email}`;
+    const url = ` https://mysterious-falls-26048.herokuapp.com/users/${user.email}`;
     fetch(url)
       .then((res) => res.json())
       .then((result) => {
@@ -102,7 +102,7 @@ const useFirebase = () => {
 
   const savedInDB = (name, email) => {
     const userToDB = { name, email };
-    fetch("http://localhost:5000/user", {
+    fetch(" https://mysterious-falls-26048.herokuapp.com/user", {
       method: "POST",
       headers: {
         "content-type": "application/json",

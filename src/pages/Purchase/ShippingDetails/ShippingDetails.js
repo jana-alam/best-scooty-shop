@@ -34,7 +34,7 @@ const ShippingDetails = ({ productDetail }) => {
       ...shipping,
     };
 
-    fetch("http://localhost:5000/order", {
+    fetch(" https://mysterious-falls-26048.herokuapp.com/order", {
       method: "POST",
       headers: {
         "content-type": "application/json",

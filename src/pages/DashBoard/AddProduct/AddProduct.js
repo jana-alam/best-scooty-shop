@@ -12,7 +12,7 @@ const AddProduct = () => {
   };
   const handleAddProduct = (e) => {
     e.preventDefault();
-    fetch("http://localhost:5000/product", {
+    fetch(" https://mysterious-falls-26048.herokuapp.com/product", {
       method: "POST",
       headers: {
         "content-type": "application/json",

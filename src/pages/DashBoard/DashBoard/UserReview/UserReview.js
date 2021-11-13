@@ -15,7 +15,7 @@ const UserReview = () => {
   const hanldleReview = (e) => {
     e.preventDefault();
     const customerReview = { ...review, name: user?.displayName };
-    const url = `http://localhost:5000/review`;
+    const url = ` https://mysterious-falls-26048.herokuapp.com/review`;
     fetch(url, {
       method: "POST",
       headers: {
