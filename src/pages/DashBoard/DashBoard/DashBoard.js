@@ -13,6 +13,7 @@ import UserReview from "./UserReview/UserReview";
 
 const DashBoard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [error, setError] = useState("");
   let { path, url } = useRouteMatch();
 
   return (
@@ -25,14 +26,14 @@ const DashBoard = () => {
       />
 
       {/* Content area */}
-      <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
+      <div className="relative flex flex-col flex-1 overflow-y-auto overflow-x-hidden bg-gray-300">
         {/*  Site header */}
         <DashBoardHeader
           sidebarOpen={sidebarOpen}
           setSidebarOpen={setSidebarOpen}
         />
         {/* Main content area */}
-        <main>
+        <main className="p-6 sm:p-12">
           {/* Nested Route */}
           <Switch>
             <Route exact path={path}>
@@ -57,7 +58,7 @@ const DashBoard = () => {
               <ManageOrders></ManageOrders>
             </Route>
             <Route path={`${path}/make-admin`}>
-              <MakeAdmin></MakeAdmin>
+              <MakeAdmin setError={setError}></MakeAdmin>
             </Route>
           </Switch>
         </main>

@@ -105,7 +105,7 @@ const DashBoardSideBar = ({ sidebarOpen, setSidebarOpen, url }) => {
                 </div>
               </NavLink>
             </li>
-            {user.role === "admin" ? (
+            {1 === 1 ? (
               <div>
                 {/* Make Admin */}
                 <li className="px-3 py-2 rounded-sm mb-0.5 last:mb-0">
