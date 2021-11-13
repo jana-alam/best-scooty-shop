@@ -1,6 +1,15 @@
 import React from "react";
+import { useHistory } from "react-router";
+import { NavLink } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
 
 const DashBoardHeader = ({ sidebarOpen, setSidebarOpen }) => {
+  const { logOut } = useAuth();
+  const history = useHistory();
+  const handleLogOut = () => {
+    logOut();
+    history.push("/");
+  };
   return (
     <header className="sticky top-0 bg-white border-b border-gray-200 z-30 shadow-sm">
       <div className="px-4 sm:px-6 lg:px-8">
@@ -25,10 +34,23 @@ const DashBoardHeader = ({ sidebarOpen, setSidebarOpen }) => {
                 <rect x="4" y="17" width="16" height="2" />
               </svg>
             </button>
+            <NavLink
+              to="/home"
+              className="text-gray-800 text-xl font-medium hover:text-red-600"
+            >
+              Home
+            </NavLink>
           </div>
 
           {/* Header: Right side */}
-          <div className="flex items-center"></div>
+          <div className="flex items-center">
+            <button
+              onClick={handleLogOut}
+              className="px-4 py-2 bg-gray-800 text-white rounded-full hover:bg-red-600"
+            >
+              Log Out
+            </button>
+          </div>
         </div>
       </div>
     </header>
