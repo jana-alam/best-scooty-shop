@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import HomeScooter from "../HomeScooter/HomeScooter";
 
 const HomeScooters = () => {
+  const [homeProducts, setHomeProducts] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:5000/home/products")
+      .then((res) => res.json())
+      .then((data) => {
+        setHomeProducts(data);
+      });
+  }, []);
+
   return (
     // Products section homepage
     <section className="py-8 pb-24 relative">
@@ -15,13 +24,10 @@ const HomeScooters = () => {
         </p>
       </div>
       {/* Products container */}
-      <div className="w-10/12 mx-auto grid grid-cols-1 sm:grid-cols-2 gap-8 shadow-xl mt-8 bg-gray-100 py-8">
-        <HomeScooter />
-        <HomeScooter />
-        <HomeScooter />
-        <HomeScooter />
-        <HomeScooter />
-        <HomeScooter />
+      <div className="w-11/12 mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 shadow-2xl mt-8 py-8">
+        {homeProducts.map((scooter) => (
+          <HomeScooter key={scooter._id} scooter={scooter} />
+        ))}
       </div>
     </section>
   );
