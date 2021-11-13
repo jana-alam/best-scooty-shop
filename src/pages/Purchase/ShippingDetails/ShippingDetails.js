@@ -9,14 +9,13 @@ const ShippingDetails = ({ productDetail }) => {
     name: user?.displayName,
     email: user?.email,
   });
-  const [order, setOrder] = useState({});
+  const [shipping, setShipping] = useState({});
   const handleShippingInput = (e) => {
     const field = e.target.name;
     const value = e.target.value;
-    const updatedOrder = { ...order };
-    updatedOrder[field] = value;
-    setOrder(updatedOrder);
-    console.log(updatedOrder);
+    const updatedShipping = { ...shipping };
+    updatedShipping[field] = value;
+    setShipping(updatedShipping);
   };
   const handleUserInfo = (e) => {
     const name = e.target.name;
@@ -29,10 +28,10 @@ const ShippingDetails = ({ productDetail }) => {
   const handleOrder = (e) => {
     e.preventDefault();
     const orderDetails = {
-      userEmai: user?.email,
-      customer: userInfo,
-      orderedProduct: productDetail,
-      shipping: order,
+      userEmail: user?.email,
+      ...userInfo,
+      productDetail,
+      ...shipping,
     };
 
     fetch("http://localhost:5000/order", {
