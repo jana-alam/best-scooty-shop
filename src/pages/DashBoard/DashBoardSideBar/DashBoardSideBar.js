@@ -44,6 +44,7 @@ const DashBoardSideBar = ({ sidebarOpen, setSidebarOpen, url }) => {
       ></div>
 
       {/* Sidebar */}
+
       <div
         id="sidebar"
         ref={sidebar}
@@ -105,6 +106,7 @@ const DashBoardSideBar = ({ sidebarOpen, setSidebarOpen, url }) => {
                 </div>
               </NavLink>
             </li>
+
             {admin === true ? (
               <div>
                 {/* Make Admin */}
