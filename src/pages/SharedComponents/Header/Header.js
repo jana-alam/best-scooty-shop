@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
 const Header = () => {
-  const { user, logOut } = useAuth();
+  const { user, admin, logOut } = useAuth();
   const handleLogOut = () => {
     logOut();
   };
@@ -64,6 +64,11 @@ const Header = () => {
               <div className="flex items-center pr-2 sm:ml-6 sm:pr-0 space-x-4">
                 {user?.email ? (
                   <div className="space-x-4 flex items-center">
+                    {admin && (
+                      <span className="text-white text-xl  border-b-2 border-transparent">
+                        Hi, {user?.displayName} !
+                      </span>
+                    )}
                     <span className="text-white text-xl  border-b-2 border-transparent">
                       Hi, {user?.displayName} !
                     </span>

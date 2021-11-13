@@ -4,7 +4,7 @@ import useAuth from "../../../hooks/useAuth";
 import logo from "../../../images/logo-white.png";
 
 const DashBoardSideBar = ({ sidebarOpen, setSidebarOpen, url }) => {
-  const { user } = useAuth();
+  const { admin } = useAuth();
   const trigger = useRef(null);
   const sidebar = useRef(null);
 
@@ -105,7 +105,7 @@ const DashBoardSideBar = ({ sidebarOpen, setSidebarOpen, url }) => {
                 </div>
               </NavLink>
             </li>
-            {1 === 1 ? (
+            {admin === true ? (
               <div>
                 {/* Make Admin */}
                 <li className="px-3 py-2 rounded-sm mb-0.5 last:mb-0">

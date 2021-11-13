@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Route, Switch, useRouteMatch } from "react-router";
+import AdminRoute from "../../Login/AdminRoute/AdminRoute";
 import AddProduct from "../AddProduct/AddProduct";
 import DashBoardHeader from "../DashBoardHeader/DashBoardHeader";
 import DashBoardSideBar from "../DashBoardSideBar/DashBoardSideBar";
@@ -48,18 +49,18 @@ const DashBoard = () => {
             <Route path={`${path}/review`}>
               <UserReview></UserReview>
             </Route>
-            <Route path={`${path}/add-product`}>
+            <AdminRoute path={`${path}/add-product`}>
               <AddProduct></AddProduct>
-            </Route>
-            <Route path={`${path}/manage-products`}>
+            </AdminRoute>
+            <AdminRoute path={`${path}/manage-products`}>
               <ManageProducts></ManageProducts>
-            </Route>
-            <Route path={`${path}/manage-orders`}>
+            </AdminRoute>
+            <AdminRoute path={`${path}/manage-orders`}>
               <ManageOrders></ManageOrders>
-            </Route>
-            <Route path={`${path}/make-admin`}>
+            </AdminRoute>
+            <AdminRoute path={`${path}/make-admin`}>
               <MakeAdmin setError={setError}></MakeAdmin>
-            </Route>
+            </AdminRoute>
           </Switch>
         </main>
       </div>

@@ -13,6 +13,7 @@ firebaseInitialization();
 
 const useFirebase = () => {
   const [user, setUser] = useState({});
+  const [admin, setAdmin] = useState(false);
   const [loading, setLoading] = useState(true);
   const auth = getAuth();
 
@@ -32,6 +33,23 @@ const useFirebase = () => {
       setLoading(false);
     });
   }, [auth]);
+
+  // check the user is admin or not
+
+  useEffect(() => {
+    const url = `http://localhost:5000/users/${user.email}`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.admin) {
+          setAdmin(true);
+          console.log(result);
+        } else {
+          setAdmin(false);
+          console.log(result);
+        }
+      });
+  }, [user.email]);
 
   // register user
   const registerUser = (name, email, password, location, history) => {
@@ -96,7 +114,7 @@ const useFirebase = () => {
       });
   };
 
-  return { user, registerUser, loading, loginUser, logOut };
+  return { user, admin, registerUser, loading, loginUser, logOut };
 };
 
 export default useFirebase;
