@@ -14,7 +14,6 @@ import UserReview from "./UserReview/UserReview";
 
 const DashBoard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const [error, setError] = useState("");
   let { path, url } = useRouteMatch();
 
   return (
@@ -59,7 +58,7 @@ const DashBoard = () => {
               <ManageOrders></ManageOrders>
             </AdminRoute>
             <AdminRoute path={`${path}/make-admin`}>
-              <MakeAdmin setError={setError}></MakeAdmin>
+              <MakeAdmin></MakeAdmin>
             </AdminRoute>
           </Switch>
         </main>
