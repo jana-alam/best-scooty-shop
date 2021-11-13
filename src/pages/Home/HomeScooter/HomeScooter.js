@@ -2,11 +2,11 @@ import React from "react";
 import { useHistory } from "react-router";
 
 const HomeScooter = ({ scooter }) => {
-  const { productName, shortDescription, price, power, stock, imageUrl } =
+  const { _id, productName, shortDescription, price, power, stock, imageUrl } =
     scooter;
   const history = useHistory();
-  const handleBuyNow = () => {
-    history.push("/purchase");
+  const handleBuyNow = (id) => {
+    history.push(`/purchase/${id}`);
   };
   return (
     <div className="flex flex-col lg:flex-row space-y-6 space-x-6 items-center p-6">
@@ -27,7 +27,7 @@ const HomeScooter = ({ scooter }) => {
           <span className="text-green-600 ">{stock}!</span>
         </p>
         <button
-          onClick={handleBuyNow}
+          onClick={() => handleBuyNow(_id)}
           className="px-6 py-2 mt-8 bg-red-600 text-white rounded-full"
         >
           Buy It Now

@@ -4,11 +4,11 @@ import { useHistory } from "react-router";
 import scooty1 from "../../../images/scooty-1.jpg";
 
 const SingleScooter = ({ scooter }) => {
-  const { productName, shortDescription, price, power, stock, imageUrl } =
+  const { _id, productName, shortDescription, price, power, stock, imageUrl } =
     scooter;
   const history = useHistory();
-  const handleBuyNow = () => {
-    history.push("/purchase");
+  const handleBuyNow = (id) => {
+    history.push(`/purchase/${id}`);
   };
   return (
     <div className="flex flex-col sm:space-x-6 space-y-6 sm:space-y-2 items-center p-2 sm:p-4 bg-white">
@@ -32,7 +32,7 @@ const SingleScooter = ({ scooter }) => {
         </div>
 
         <button
-          onClick={handleBuyNow}
+          onClick={() => handleBuyNow(_id)}
           className="px-6 py-2 mt-8 bg-red-600 text-white rounded-full"
         >
           Buy It Now

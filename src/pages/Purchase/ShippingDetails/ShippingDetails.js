@@ -1,10 +1,63 @@
-import React from "react";
+import React, { useState } from "react";
+import { useHistory } from "react-router";
+import useAuth from "../../../hooks/useAuth";
 
-const ShippingDetails = () => {
+const ShippingDetails = ({ productDetail }) => {
+  const { user } = useAuth();
+  const history = useHistory();
+  const [userInfo, setUserInfo] = useState({
+    name: user?.displayName,
+    email: user?.email,
+  });
+  const [order, setOrder] = useState({});
+  const handleShippingInput = (e) => {
+    const field = e.target.name;
+    const value = e.target.value;
+    const updatedOrder = { ...order };
+    updatedOrder[field] = value;
+    setOrder(updatedOrder);
+    console.log(updatedOrder);
+  };
+  const handleUserInfo = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    const updatedUser = { ...userInfo };
+    updatedUser[name] = value;
+    setUserInfo(updatedUser);
+    console.log(updatedUser);
+  };
+  const handleOrder = (e) => {
+    e.preventDefault();
+    const orderDetails = {
+      userEmai: user?.email,
+      customer: userInfo,
+      orderedProduct: productDetail,
+      shipping: order,
+    };
+
+    fetch("http://localhost:5000/order", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(orderDetails),
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.insertedId) {
+          alert("order submitted successfully");
+          e.target.reset();
+          history.push("/scooters");
+        }
+      })
+      .catch((error) => {
+        e.target.reset();
+      });
+  };
   return (
     <div className="mt-10 sm:mt-0 ">
       {/* form */}
-      <form className="px-6">
+      <form onSubmit={handleOrder} className="px-6">
         <div className="shadow">
           <div className="px-4 py-5 bg-white sm:p-6">
             {/* inputs grid container */}
@@ -16,8 +69,10 @@ const ShippingDetails = () => {
               {/* name */}
               <div className="col-span-6 sm:col-span-3">
                 <input
+                  onChange={handleUserInfo}
                   type="text"
                   name="name"
+                  value={userInfo?.name || ""}
                   placeholder="Your Name"
                   className="p-2 mt-1 block w-full shadow-sm sm:text-sm border-b-2 border-gray-300"
                 />
@@ -25,8 +80,10 @@ const ShippingDetails = () => {
               {/* email */}
               <div className="col-span-6 sm:col-span-3">
                 <input
+                  onChange={handleUserInfo}
                   type="email"
-                  name="email-address"
+                  name="email"
+                  value={userInfo?.email || ""}
                   placeholder="Your Email"
                   className="p-2 mt-1 block w-full shadow-sm sm:text-sm border-b-2 border-gray-300"
                 />
@@ -34,6 +91,7 @@ const ShippingDetails = () => {
               {/* phone number */}
               <div className="col-span-6 sm:col-span-3">
                 <input
+                  onBlur={handleShippingInput}
                   type="number"
                   name="phone"
                   placeholder="Phone Number"
@@ -46,6 +104,7 @@ const ShippingDetails = () => {
               </div>
               <div className="col-span-6">
                 <textarea
+                  onBlur={handleShippingInput}
                   type="text"
                   name="address"
                   placeholder="Address"
@@ -54,6 +113,7 @@ const ShippingDetails = () => {
               </div>
               <div className="col-span-6 sm:col-span-6 lg:col-span-2">
                 <input
+                  onBlur={handleShippingInput}
                   type="text"
                   name="city"
                   placeholder="City"
@@ -62,6 +122,7 @@ const ShippingDetails = () => {
               </div>
               <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                 <input
+                  onBlur={handleShippingInput}
                   type="text"
                   name="state"
                   placeholder="State/Province"
@@ -71,6 +132,7 @@ const ShippingDetails = () => {
 
               <div className="col-span-6 sm:col-span-3 lg:col-span-2">
                 <input
+                  onBlur={handleShippingInput}
                   type="number"
                   name="postal-code"
                   placeholder="ZIP/Postal Code"
@@ -85,8 +147,10 @@ const ShippingDetails = () => {
               <div className="col-span-6 sm:col-span-2">
                 <div className="flex items-center">
                   <input
+                    onChange={handleShippingInput}
                     id="paypal"
                     name="payment"
+                    value="paypal"
                     type="radio"
                     className=" h-4 w-4 "
                   />
@@ -101,8 +165,10 @@ const ShippingDetails = () => {
               <div className="col-span-6 sm:col-span-2">
                 <div className="flex items-center">
                   <input
+                    onChange={handleShippingInput}
                     id="cash-on-delivery"
                     name="payment"
+                    value="cash-on-delivery"
                     type="radio"
                     className=" h-4 w-4 "
                   />
@@ -117,7 +183,9 @@ const ShippingDetails = () => {
               <div className="col-span-6 sm:col-span-2">
                 <div className="flex items-center">
                   <input
+                    onChange={handleShippingInput}
                     id="visa-Card"
+                    value="visa-card"
                     name="payment"
                     type="radio"
                     className=" h-4 w-4 "
