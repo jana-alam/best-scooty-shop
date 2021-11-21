@@ -65,7 +65,7 @@ const Header = () => {
                 {user?.email ? (
                   <div className="space-x-4 flex items-center">
                     <span className="text-white text-xl  border-b-2 border-transparent">
-                      Hi, {user?.displayName} !
+                      Welcome, {user?.displayName} !
                     </span>
                     <NavLink
                       className="text-white text-xl  border-b-2 border-transparent hover:text-gray-200"
