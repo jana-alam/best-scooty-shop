@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import useAuth from "../../../hooks/useAuth";
+import Spinner from "../../SharedComponents/Spinner/Spinner";
 
 const AddProduct = () => {
   const [product, setProduct] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleInput = (e) => {
     const field = e.target.name;
@@ -11,6 +14,7 @@ const AddProduct = () => {
     setProduct(productInfo);
   };
   const handleAddProduct = (e) => {
+    setIsLoading(true);
     e.preventDefault();
     fetch(" https://mysterious-falls-26048.herokuapp.com/product", {
       method: "POST",
@@ -26,7 +30,8 @@ const AddProduct = () => {
           alert("New Product Added");
         }
         console.log(result);
-      });
+      })
+      .finally(() => setIsLoading(false));
   };
 
   return (
@@ -117,10 +122,14 @@ const AddProduct = () => {
                 />
               </div>
               {/* submit button */}
+
               <div className="col-span-6 text-gray-700 text-sm font-medium">
                 <button
+                  disabled={isLoading}
                   type="submit"
-                  className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                  className={`${
+                    isLoading && `opacity-50 cursor-not-allowed`
+                  } inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500`}
                 >
                   Add Product
                 </button>
