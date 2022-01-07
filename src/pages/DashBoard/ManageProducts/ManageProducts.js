@@ -13,7 +13,7 @@ const ManageProducts = () => {
   }, []);
 
   const handleDeleteProduct = (id) => {
-    fetch(` http://localhost:5000/products/${id}`, {
+    fetch(` https://mysterious-falls-26048.herokuapp.com/products/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
